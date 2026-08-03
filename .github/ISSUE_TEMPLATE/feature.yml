@@ -1,22 +1,22 @@
-name: "Security"
-description: "Report a security vulnerability or security-related issue"
-title: "[Security]: "
+name: "Feature"
+description: "Create a new business or technical capability"
+title: "[Feature]: "
 
 labels:
-  - "type:security"
+  - "type:feature"
 
 body:
 
   - type: markdown
     attributes:
       value: |
-        # Security Issue
+        # Feature
 
-        Complete all mandatory fields before submitting.
+        A Feature represents a new business or technical capability that contributes
+        to an Epic and is implemented through one or more User Stories.
 
         ---
         ## Enterprise Header
-
         The first five fields are mandatory for every engineering work item.
 
   ######################################################################
@@ -54,7 +54,6 @@ body:
     id: priority
     attributes:
       label: Priority
-      description: Business priority.
       options:
         - priority:p0
         - priority:p1
@@ -66,7 +65,7 @@ body:
   - type: dropdown
     id: component
     attributes:
-      label: Affected Component
+      label: Primary Component
       options:
         - component:api
         - component:backend
@@ -84,137 +83,114 @@ body:
       required: true
 
   ######################################################################
-  # Security Details
+  # Feature Details
   ######################################################################
 
-  - type: dropdown
-    id: severity
+  - type: textarea
+    id: feature_summary
     attributes:
-      label: Severity
-      description: Security impact.
-      options:
-        - severity:critical
-        - severity:high
-        - severity:medium
-        - severity:low
-    validations:
-      required: true
-
-  - type: dropdown
-    id: security_category
-    attributes:
-      label: Security Category
-      description: Select the security issue category.
-      options:
-        - AI / LLM Security
-        - API Security
-        - Application Security
-        - Authentication
-        - Authorization
-        - Cloud Security
-        - Compliance
-        - Configuration
-        - Container Security
-        - Cryptography
-        - Data Protection
-        - Dependency Vulnerability
-        - Identity and Access Management
-        - Infrastructure Security
-        - Kubernetes Security
-        - Malware
-        - Network Security
-        - Privacy
-        - Secrets Management
-        - Supply Chain Security
-        - Other
+      label: Feature Summary
+      description: Provide a concise description of the feature.
     validations:
       required: true
 
   - type: textarea
-    id: security_summary
+    id: business_problem
     attributes:
-      label: Security Summary
-      description: Brief summary of the security issue.
+      label: Business Problem
+      description: What problem does this feature solve?
     validations:
       required: true
 
   - type: textarea
-    id: technical_description
+    id: business_value
     attributes:
-      label: Technical Description
-      description: Describe the vulnerability in detail.
+      label: Business Value
+      description: Describe the expected business value.
     validations:
       required: true
 
   - type: textarea
-    id: affected_assets
+    id: feature_description
     attributes:
-      label: Affected Assets
-      description: Systems, APIs, infrastructure, repositories or services affected.
+      label: Feature Description
+      description: Describe the capability being delivered.
     validations:
       required: true
 
   - type: textarea
-    id: business_impact
+    id: functional_requirements
     attributes:
-      label: Business Impact
-      description: Describe the impact to the business if exploited.
-    validations:
-      required: true
-
-  - type: textarea
-    id: technical_impact
-    attributes:
-      label: Technical Impact
-      description: Describe the technical impact.
-    validations:
-      required: true
-
-  - type: textarea
-    id: steps_to_reproduce
-    attributes:
-      label: Steps to Reproduce
-      description: Describe how the issue can be reproduced.
+      label: Functional Requirements
+      description: List the functional requirements.
       placeholder: |
-        1. ...
-        2. ...
-        3. ...
-    validations:
-      required: false
+        FR-001
 
-  - type: textarea
-    id: evidence
-    attributes:
-      label: Evidence
-      description: Scanner output, logs, screenshots, CVEs, CWEs or proof of concept.
-      render: shell
+        FR-002
 
-  - type: textarea
-    id: proposed_mitigation
-    attributes:
-      label: Proposed Mitigation
-      description: Describe the recommended remediation.
+        FR-003
     validations:
       required: true
 
   - type: textarea
-    id: references
+    id: non_functional_requirements
     attributes:
-      label: References
-      description: Links to CVEs, CWEs, OWASP, NIST guidance or vendor advisories.
+      label: Non-functional Requirements
+      description: Performance, security, availability, scalability, compliance, etc.
+      placeholder: |
+        Performance
+
+        Security
+
+        Availability
+
+        Scalability
+
+        Compliance
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define the success criteria for this feature.
+      placeholder: |
+        - Criterion 1
+        - Criterion 2
+        - Criterion 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: assumptions
+    attributes:
+      label: Assumptions
+      description: List any assumptions.
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Related Epics, Stories, systems or teams.
+
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: Implementation Notes
+      description: High-level implementation guidance.
 
   ######################################################################
-  # Verification
+  # Completion Checklist
   ######################################################################
 
   - type: checkboxes
-    id: verification
+    id: checklist
     attributes:
-      label: Security Checklist
+      label: Feature Checklist
       options:
-        - label: Business impact assessed
-        - label: Technical impact assessed
-        - label: Evidence attached
-        - label: Mitigation proposed
-        - label: Security team notified
-        - label: Related issues linked
+        - label: Business problem defined
+        - label: Business value documented
+        - label: Functional requirements completed
+        - label: Non-functional requirements reviewed
+        - label: Acceptance criteria approved
+        - label: Dependencies identified
+        - label: Implementation approach reviewed

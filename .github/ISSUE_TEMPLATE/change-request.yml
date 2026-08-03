@@ -1,16 +1,16 @@
-name: "Task"
-description: "Create a development task"
-title: "[Task]: "
+name: "Change Request"
+description: "Request a change to an application, platform or infrastructure"
+title: "[Change]: "
 
 labels:
-  - "type:task"
+  - "type:change-request"
 
 body:
 
   - type: markdown
     attributes:
       value: |
-        # Development Task
+        # Change Request
 
         Complete all mandatory fields before submitting.
 
@@ -53,7 +53,6 @@ body:
     id: priority
     attributes:
       label: Priority
-      description: Select the business priority.
       options:
         - priority:p0
         - priority:p1
@@ -66,7 +65,6 @@ body:
     id: component
     attributes:
       label: Primary Component
-      description: Select the primary component affected.
       options:
         - component:api
         - component:backend
@@ -84,36 +82,62 @@ body:
       required: true
 
   ######################################################################
-  # Task Details
+  # Change Request Details
   ######################################################################
 
   - type: textarea
-    id: description
+    id: change_summary
     attributes:
-      label: Description
-      description: Describe the work that needs to be completed.
-      placeholder: |
-        Describe the task in sufficient detail.
+      label: Change Summary
+      description: Describe the requested change.
     validations:
       required: true
 
   - type: textarea
-    id: business_value
+    id: business_justification
     attributes:
-      label: Business Value
-      description: Explain why this work is required.
-      placeholder: |
-        Describe the value this task delivers.
+      label: Business Justification
+      description: Why is this change required?
+    validations:
+      required: true
 
   - type: textarea
-    id: acceptance_criteria
+    id: implementation_plan
     attributes:
-      label: Acceptance Criteria
-      description: Define the conditions that must be met before this task is considered complete.
-      placeholder: |
-        - Requirement 1
-        - Requirement 2
-        - Requirement 3
+      label: Implementation Plan
+      description: Describe how the change will be implemented.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact_assessment
+    attributes:
+      label: Impact Assessment
+      description: Describe the expected impact of this change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk_assessment
+    attributes:
+      label: Risk Assessment
+      description: Describe technical, operational and business risks.
+    validations:
+      required: true
+
+  - type: textarea
+    id: rollback_plan
+    attributes:
+      label: Rollback Plan
+      description: Describe how the change can be reversed if required.
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation_plan
+    attributes:
+      label: Validation Plan
+      description: Describe how success will be verified.
     validations:
       required: true
 
@@ -121,56 +145,21 @@ body:
     id: dependencies
     attributes:
       label: Dependencies
-      description: Related issues, blockers or prerequisites.
-      placeholder: |
-        Depends on #123
-
-        Blocked by #456
-
-  - type: textarea
-    id: implementation_notes
-    attributes:
-      label: Implementation Notes
-      description: Architecture notes, implementation details or design references.
-      placeholder: |
-        Design decisions
-
-        API changes
-
-        ADR references
-
-        Documentation links
-
-  - type: textarea
-    id: test_plan
-    attributes:
-      label: Test Plan
-      description: Describe how this task will be verified.
-      placeholder: |
-        Unit Tests
-
-        Integration Tests
-
-        Manual Tests
-
-        Performance Tests
-
-        Security Tests
+      description: Related issues, systems or external dependencies.
 
   ######################################################################
-  # Definition of Done
+  # Approval Checklist
   ######################################################################
 
   - type: checkboxes
-    id: definition_of_done
+    id: approvals
     attributes:
-      label: Definition of Done
-      description: Confirm the completion checklist.
+      label: Change Readiness Checklist
       options:
-        - label: Code implemented
-        - label: Code reviewed
-        - label: Unit tests completed
-        - label: Integration tests completed
-        - label: Documentation updated
-        - label: Security review completed
-        - label: Acceptance criteria satisfied
+        - label: Business justification documented
+        - label: Impact assessed
+        - label: Risk assessment completed
+        - label: Rollback plan documented
+        - label: Validation plan documented
+        - label: Stakeholders informed
+        - label: Implementation approved

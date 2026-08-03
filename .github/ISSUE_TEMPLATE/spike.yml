@@ -1,0 +1,197 @@
+name: "Spike"
+description: "Research, investigation or proof of concept"
+title: "[Spike]: "
+
+labels:
+  - "type:spike"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        # Spike
+
+        A Spike is a time-boxed research activity used to investigate,
+        prototype or evaluate a technical or business problem.
+
+        ---
+        ## Enterprise Header
+
+        The first five fields are mandatory for every engineering work item.
+
+  ######################################################################
+  # Enterprise Header
+  ######################################################################
+
+  - type: input
+    id: requestor_id
+    attributes:
+      label: Requestor ID
+      description: Employee ID or corporate email address.
+      placeholder: john.doe@accenture.com
+    validations:
+      required: true
+
+  - type: input
+    id: application_name
+    attributes:
+      label: Application Name
+      description: Name of the application or service.
+      placeholder: AI Gateway
+    validations:
+      required: true
+
+  - type: input
+    id: application_id
+    attributes:
+      label: Application ID (AIR ID)
+      description: Enterprise AIR Application Identifier.
+      placeholder: AIR-123456
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Business priority.
+      options:
+        - priority:p0
+        - priority:p1
+        - priority:p2
+        - priority:p3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Primary Component
+      options:
+        - component:api
+        - component:backend
+        - component:frontend
+        - component:database
+        - component:infrastructure
+        - component:ci-cd
+        - component:security
+        - component:testing
+        - component:ai
+        - component:ai-agent
+        - component:documentation
+        - component:other
+    validations:
+      required: true
+
+  ######################################################################
+  # Spike Details
+  ######################################################################
+
+  - type: textarea
+    id: research_question
+    attributes:
+      label: Research Question
+      description: What question is this Spike trying to answer?
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: Provide context for the investigation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: objectives
+    attributes:
+      label: Objectives
+      description: What are the objectives of this Spike?
+      placeholder: |
+        • Evaluate...
+        • Compare...
+        • Prototype...
+    validations:
+      required: true
+
+  - type: textarea
+    id: approach
+    attributes:
+      label: Investigation Approach
+      description: Describe the planned investigation or proof of concept.
+    validations:
+      required: true
+
+  - type: input
+    id: timebox
+    attributes:
+      label: Timebox
+      description: Planned duration of the Spike.
+      placeholder: 2 days
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_deliverables
+    attributes:
+      label: Expected Deliverables
+      description: What outputs should this Spike produce?
+      placeholder: |
+        Recommendation
+
+        Prototype
+
+        Architecture Decision
+
+        Benchmark Results
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_criteria
+    attributes:
+      label: Success Criteria
+      description: How will you know the Spike has achieved its objectives?
+    validations:
+      required: true
+
+  - type: textarea
+    id: findings
+    attributes:
+      label: Findings
+      description: Record the outcome of the investigation.
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommendation
+      description: Summarise the recommended next steps.
+
+  - type: textarea
+    id: follow_up_work
+    attributes:
+      label: Follow-up Work
+      description: List Features, Tasks or Architecture Decisions resulting from this Spike.
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to documentation, benchmarks or research.
+
+  ######################################################################
+  # Completion Checklist
+  ######################################################################
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Spike Checklist
+      options:
+        - label: Research completed
+        - label: Findings documented
+        - label: Recommendation documented
+        - label: Follow-up work identified
+        - label: Stakeholders informed

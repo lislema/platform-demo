@@ -1,16 +1,16 @@
-name: "Task"
-description: "Create a development task"
-title: "[Task]: "
+name: "Enhancement"
+description: "Request an improvement to an existing capability"
+title: "[Enhancement]: "
 
 labels:
-  - "type:task"
+  - "type:enhancement"
 
 body:
 
   - type: markdown
     attributes:
       value: |
-        # Development Task
+        # Enhancement Request
 
         Complete all mandatory fields before submitting.
 
@@ -53,7 +53,6 @@ body:
     id: priority
     attributes:
       label: Priority
-      description: Select the business priority.
       options:
         - priority:p0
         - priority:p1
@@ -66,7 +65,6 @@ body:
     id: component
     attributes:
       label: Primary Component
-      description: Select the primary component affected.
       options:
         - component:api
         - component:backend
@@ -84,16 +82,22 @@ body:
       required: true
 
   ######################################################################
-  # Task Details
+  # Enhancement Details
   ######################################################################
 
   - type: textarea
-    id: description
+    id: current_capability
     attributes:
-      label: Description
-      description: Describe the work that needs to be completed.
-      placeholder: |
-        Describe the task in sufficient detail.
+      label: Current Capability
+      description: Describe the existing capability.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_enhancement
+    attributes:
+      label: Proposed Enhancement
+      description: Describe the proposed improvement.
     validations:
       required: true
 
@@ -101,19 +105,26 @@ body:
     id: business_value
     attributes:
       label: Business Value
-      description: Explain why this work is required.
+      description: Explain why this enhancement is valuable.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_benefits
+    attributes:
+      label: Expected Benefits
+      description: Describe the expected outcomes.
       placeholder: |
-        Describe the value this task delivers.
+        Improved performance
+        Better usability
+        Lower operational cost
+        Improved reliability
 
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: Acceptance Criteria
-      description: Define the conditions that must be met before this task is considered complete.
-      placeholder: |
-        - Requirement 1
-        - Requirement 2
-        - Requirement 3
+      description: Define the success criteria.
     validations:
       required: true
 
@@ -121,56 +132,31 @@ body:
     id: dependencies
     attributes:
       label: Dependencies
-      description: Related issues, blockers or prerequisites.
-      placeholder: |
-        Depends on #123
-
-        Blocked by #456
+      description: Related issues, systems or prerequisites.
 
   - type: textarea
     id: implementation_notes
     attributes:
       label: Implementation Notes
-      description: Architecture notes, implementation details or design references.
-      placeholder: |
-        Design decisions
-
-        API changes
-
-        ADR references
-
-        Documentation links
+      description: Technical implementation guidance.
 
   - type: textarea
     id: test_plan
     attributes:
       label: Test Plan
-      description: Describe how this task will be verified.
-      placeholder: |
-        Unit Tests
-
-        Integration Tests
-
-        Manual Tests
-
-        Performance Tests
-
-        Security Tests
+      description: Describe how the enhancement will be validated.
 
   ######################################################################
-  # Definition of Done
+  # Completion Checklist
   ######################################################################
 
   - type: checkboxes
-    id: definition_of_done
+    id: checklist
     attributes:
-      label: Definition of Done
-      description: Confirm the completion checklist.
+      label: Enhancement Checklist
       options:
-        - label: Code implemented
-        - label: Code reviewed
-        - label: Unit tests completed
-        - label: Integration tests completed
+        - label: Business value documented
+        - label: Acceptance criteria defined
+        - label: Technical approach reviewed
+        - label: Test plan completed
         - label: Documentation updated
-        - label: Security review completed
-        - label: Acceptance criteria satisfied

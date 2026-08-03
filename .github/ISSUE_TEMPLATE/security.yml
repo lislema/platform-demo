@@ -1,0 +1,204 @@
+name: "Security"
+description: "Report a security vulnerability or security-related issue"
+title: "[Security]: "
+
+labels:
+  - "type:security"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        # Security Issue
+
+        Complete all mandatory fields before submitting.
+
+        ---
+        ## Enterprise Header
+        The first five fields are mandatory for every engineering work item.
+
+  ######################################################################
+  # Enterprise Header (Common to ALL Issue Types)
+  ######################################################################
+
+  - type: input
+    id: requestor_id
+    attributes:
+      label: Requestor ID
+      description: Employee ID or corporate email address.
+      placeholder: john.doe@accenture.com
+    validations:
+      required: true
+
+  - type: input
+    id: application_name
+    attributes:
+      label: Application Name
+      description: Name of the application or service.
+      placeholder: AI Gateway
+    validations:
+      required: true
+
+  - type: input
+    id: application_id
+    attributes:
+      label: Application ID (AIR ID)
+      description: Enterprise AIR Application Identifier.
+      placeholder: AIR-123456
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Business priority.
+      options:
+        - priority:p0
+        - priority:p1
+        - priority:p2
+        - priority:p3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      options:
+        - component:api
+        - component:backend
+        - component:frontend
+        - component:database
+        - component:infrastructure
+        - component:ci-cd
+        - component:security
+        - component:testing
+        - component:ai
+        - component:ai-agent
+        - component:documentation
+        - component:other
+    validations:
+      required: true
+
+  ######################################################################
+  # Security Details
+  ######################################################################
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: Security impact.
+      options:
+        - severity:critical
+        - severity:high
+        - severity:medium
+        - severity:low
+    validations:
+      required: true
+
+  - type: dropdown
+    id: security_category
+    attributes:
+      label: Security Category
+      description: Select the security issue type.
+      options:
+        - Authentication
+        - Authorization
+        - Cryptography
+        - Secrets Management
+        - Identity and Access Management
+        - API Security
+        - Infrastructure Security
+        - Network Security
+        - Kubernetes Security
+        - Container Security
+        - Cloud Security
+        - Supply Chain
+        - Dependency Vulnerability
+        - Malware
+        - Data Exposure
+        - Compliance
+        - Configuration
+        - AI / LLM Security
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Security Summary
+      description: Brief description of the security issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id:_description
+    attributes:
+      label: Technical Description
+      description: Describe the vulnerability or security issue in detail.
+    validations:
+      required: true
+
+  - type: textarea
+    id:affected_assets
+    attributes:
+      label: Affected Assets
+      description: Systems, services, APIs, infrastructure or repositories affected.
+
+  - type: textarea
+    id:business_impact
+    attributes:
+      label: Business Impact
+      description: Describe the potential impact to the business.
+    validations:
+      required: true
+
+  - type: textarea
+    id:technical_impact
+    attributes:
+      label: Technical Impact
+      description: Describe the technical impact.
+
+  - type: textarea
+    id:steps
+    attributes:
+      label: Steps to Reproduce
+      description: Describe how the issue can be reproduced.
+
+  - type: textarea
+    id:evidence
+    attributes:
+      label: Evidence
+      description: Logs, screenshots, scanner output, CVE references or proof of concept.
+
+  - type: textarea
+    id:mitigation
+    attributes:
+      label: Proposed Mitigation
+      description: Recommended remediation.
+
+  - type: textarea
+    id:references
+    attributes:
+      label: References
+      description: CVE, CWE, OWASP, NIST or vendor advisories.
+
+  ######################################################################
+  # Verification
+  ######################################################################
+
+  - type: checkboxes
+    id:verification
+    attributes:
+      label: Security Checklist
+      options:
+        - label: Business impact assessed
+        - label: Technical impact assessed
+        - label: Evidence attached
+        - label: Mitigation proposed
+        - label: Security team notified
+        - label: Related issues linked

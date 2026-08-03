@@ -1,16 +1,16 @@
-name: "Task"
-description: "Create a development task"
-title: "[Task]: "
+name: "Documentation"
+description: "Create or update project documentation"
+title: "[Documentation]: "
 
 labels:
-  - "type:task"
+  - "type:documentation"
 
 body:
 
   - type: markdown
     attributes:
       value: |
-        # Development Task
+        # Documentation Request
 
         Complete all mandatory fields before submitting.
 
@@ -53,7 +53,6 @@ body:
     id: priority
     attributes:
       label: Priority
-      description: Select the business priority.
       options:
         - priority:p0
         - priority:p1
@@ -66,7 +65,6 @@ body:
     id: component
     attributes:
       label: Primary Component
-      description: Select the primary component affected.
       options:
         - component:api
         - component:backend
@@ -84,93 +82,91 @@ body:
       required: true
 
   ######################################################################
-  # Task Details
+  # Documentation Details
   ######################################################################
 
-  - type: textarea
-    id: description
+  - type: dropdown
+    id: document_type
     attributes:
-      label: Description
-      description: Describe the work that needs to be completed.
-      placeholder: |
-        Describe the task in sufficient detail.
+      label: Document Type
+      options:
+        - Architecture Document
+        - API Documentation
+        - Design Document
+        - User Guide
+        - Operations Guide
+        - Runbook
+        - Installation Guide
+        - Developer Guide
+        - Release Notes
+        - ADR
+        - README
+        - Wiki
+        - Other
     validations:
       required: true
 
   - type: textarea
-    id: business_value
+    id: description
     attributes:
-      label: Business Value
-      description: Explain why this work is required.
+      label: Documentation Request
+      description: Describe the documentation to be created or updated.
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What should this documentation achieve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience
+    attributes:
+      label: Target Audience
+      description: Who is this documentation intended for?
       placeholder: |
-        Describe the value this task delivers.
+        Developers
+        Platform Engineers
+        Operations
+        Security
+        End Users
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Define what is in scope and out of scope.
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Existing documentation, ADRs, specifications or external references.
 
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: Acceptance Criteria
-      description: Define the conditions that must be met before this task is considered complete.
-      placeholder: |
-        - Requirement 1
-        - Requirement 2
-        - Requirement 3
+      description: Define how completion will be measured.
     validations:
       required: true
 
-  - type: textarea
-    id: dependencies
-    attributes:
-      label: Dependencies
-      description: Related issues, blockers or prerequisites.
-      placeholder: |
-        Depends on #123
-
-        Blocked by #456
-
-  - type: textarea
-    id: implementation_notes
-    attributes:
-      label: Implementation Notes
-      description: Architecture notes, implementation details or design references.
-      placeholder: |
-        Design decisions
-
-        API changes
-
-        ADR references
-
-        Documentation links
-
-  - type: textarea
-    id: test_plan
-    attributes:
-      label: Test Plan
-      description: Describe how this task will be verified.
-      placeholder: |
-        Unit Tests
-
-        Integration Tests
-
-        Manual Tests
-
-        Performance Tests
-
-        Security Tests
-
   ######################################################################
-  # Definition of Done
+  # Completion Checklist
   ######################################################################
 
   - type: checkboxes
-    id: definition_of_done
+    id: checklist
     attributes:
-      label: Definition of Done
-      description: Confirm the completion checklist.
+      label: Documentation Checklist
       options:
-        - label: Code implemented
-        - label: Code reviewed
-        - label: Unit tests completed
-        - label: Integration tests completed
-        - label: Documentation updated
-        - label: Security review completed
-        - label: Acceptance criteria satisfied
+        - label: Documentation created or updated
+        - label: Technical review completed
+        - label: Links validated
+        - label: Screenshots updated (if applicable)
+        - label: Examples verified
+        - label: Grammar and spelling reviewed
+        - label: Published to the correct location

@@ -1,0 +1,203 @@
+name: "Technical Debt"
+description: "Track technical debt, refactoring and engineering improvements"
+title: "[Technical Debt]: "
+
+labels:
+  - "type:technical-debt"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        # Technical Debt
+
+        Technical Debt represents engineering work required to improve
+        maintainability, reliability, security or operational excellence.
+
+        ---
+        ## Enterprise Header
+
+        The first five fields are mandatory for every engineering work item.
+
+  ######################################################################
+  # Enterprise Header
+  ######################################################################
+
+  - type: input
+    id: requestor_id
+    attributes:
+      label: Requestor ID
+      description: Employee ID or corporate email address.
+      placeholder: john.doe@accenture.com
+    validations:
+      required: true
+
+  - type: input
+    id: application_name
+    attributes:
+      label: Application Name
+      description: Name of the application or service.
+      placeholder: AI Gateway
+    validations:
+      required: true
+
+  - type: input
+    id: application_id
+    attributes:
+      label: Application ID (AIR ID)
+      description: Enterprise AIR Application Identifier.
+      placeholder: AIR-123456
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Business priority.
+      options:
+        - priority:p0
+        - priority:p1
+        - priority:p2
+        - priority:p3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Primary Component
+      options:
+        - component:api
+        - component:backend
+        - component:frontend
+        - component:database
+        - component:infrastructure
+        - component:ci-cd
+        - component:security
+        - component:testing
+        - component:ai
+        - component:ai-agent
+        - component:documentation
+        - component:other
+    validations:
+      required: true
+
+  ######################################################################
+  # Technical Debt Details
+  ######################################################################
+
+  - type: dropdown
+    id: debt_category
+    attributes:
+      label: Technical Debt Category
+      description: Select the type of technical debt.
+      options:
+        - Code Quality
+        - Architecture
+        - Refactoring
+        - Dependency Upgrade
+        - Framework Upgrade
+        - Security Hardening
+        - Performance
+        - Testing
+        - Documentation
+        - Infrastructure
+        - Configuration
+        - Automation
+        - Observability
+        - Cloud Optimisation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: debt_description
+    attributes:
+      label: Technical Debt Description
+      description: Describe the technical debt.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: Current Problem
+      description: Explain the current technical issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: business_impact
+    attributes:
+      label: Business Impact
+      description: Describe the impact if this debt is not addressed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the recommended remediation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_benefits
+    attributes:
+      label: Expected Benefits
+      description: Describe the expected engineering improvements.
+      placeholder: |
+        Improved maintainability
+
+        Reduced operational risk
+
+        Improved performance
+
+        Reduced cloud cost
+
+        Improved security
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks
+      description: Risks associated with not addressing this technical debt.
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Related Issues, Features, Tasks or external dependencies.
+
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: Implementation Notes
+      description: Describe the proposed implementation.
+
+  - type: textarea
+    id: success_criteria
+    attributes:
+      label: Success Criteria
+      description: Define how successful completion will be measured.
+    validations:
+      required: true
+
+  ######################################################################
+  # Completion Checklist
+  ######################################################################
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Technical Debt Checklist
+      options:
+        - label: Technical debt identified
+        - label: Business impact documented
+        - label: Proposed solution reviewed
+        - label: Dependencies identified
+        - label: Success criteria agreed
+        - label: Documentation updated

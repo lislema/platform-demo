@@ -1,16 +1,16 @@
-name: "Task"
-description: "Create a development task"
-title: "[Task]: "
+name: "Bug"
+description: "Report a software defect"
+title: "[Bug]: "
 
 labels:
-  - "type:task"
+  - "type:bug"
 
 body:
 
   - type: markdown
     attributes:
       value: |
-        # Development Task
+        # Bug Report
 
         Complete all mandatory fields before submitting.
 
@@ -65,8 +65,8 @@ body:
   - type: dropdown
     id: component
     attributes:
-      label: Primary Component
-      description: Select the primary component affected.
+      label: Affected Component
+      description: Select the affected component.
       options:
         - component:api
         - component:backend
@@ -84,93 +84,121 @@ body:
       required: true
 
   ######################################################################
-  # Task Details
+  # Bug Details
   ######################################################################
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: Select the business impact.
+      options:
+        - severity:critical
+        - severity:high
+        - severity:medium
+        - severity:low
+    validations:
+      required: true
+
+  - type: input
+    id: application_version
+    attributes:
+      label: Application Version
+      description: Version where the issue was observed.
+      placeholder: v1.5.0
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Development
+        - Test
+        - UAT
+        - Production
+    validations:
+      required: true
 
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: Describe the work that needs to be completed.
+      label: Bug Description
+      description: Describe the defect.
       placeholder: |
-        Describe the task in sufficient detail.
+        Describe the problem.
     validations:
       required: true
 
   - type: textarea
-    id: business_value
+    id: steps_to_reproduce
     attributes:
-      label: Business Value
-      description: Explain why this work is required.
+      label: Steps to Reproduce
+      description: List the exact steps required to reproduce the issue.
       placeholder: |
-        Describe the value this task delivers.
-
-  - type: textarea
-    id: acceptance_criteria
-    attributes:
-      label: Acceptance Criteria
-      description: Define the conditions that must be met before this task is considered complete.
-      placeholder: |
-        - Requirement 1
-        - Requirement 2
-        - Requirement 3
+        1. Login
+        2. Navigate to...
+        3. Click...
+        4. Observe...
     validations:
       required: true
 
   - type: textarea
-    id: dependencies
+    id: expected_result
     attributes:
-      label: Dependencies
-      description: Related issues, blockers or prerequisites.
+      label: Expected Result
       placeholder: |
-        Depends on #123
-
-        Blocked by #456
+        Describe what should happen.
+    validations:
+      required: true
 
   - type: textarea
-    id: implementation_notes
+    id: actual_result
     attributes:
-      label: Implementation Notes
-      description: Architecture notes, implementation details or design references.
+      label: Actual Result
       placeholder: |
-        Design decisions
-
-        API changes
-
-        ADR references
-
-        Documentation links
+        Describe what actually happened.
+    validations:
+      required: true
 
   - type: textarea
-    id: test_plan
+    id: business_impact
     attributes:
-      label: Test Plan
-      description: Describe how this task will be verified.
+      label: Business Impact
+      description: Describe the impact to users or the business.
       placeholder: |
-        Unit Tests
+        Users cannot login.
+        Payment processing unavailable.
+        Performance degraded.
 
-        Integration Tests
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Error Messages
+      description: Paste stack traces or log output.
+      render: shell
 
-        Manual Tests
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Known Workaround
+      description: Describe any temporary workaround.
 
-        Performance Tests
-
-        Security Tests
+  - type: textarea
+    id: additional_information
+    attributes:
+      label: Additional Information
+      description: Screenshots, links or other supporting information.
 
   ######################################################################
-  # Definition of Done
+  # Verification
   ######################################################################
 
   - type: checkboxes
-    id: definition_of_done
+    id: verification
     attributes:
-      label: Definition of Done
-      description: Confirm the completion checklist.
+      label: Verification Checklist
       options:
-        - label: Code implemented
-        - label: Code reviewed
-        - label: Unit tests completed
-        - label: Integration tests completed
-        - label: Documentation updated
-        - label: Security review completed
-        - label: Acceptance criteria satisfied
+        - label: Existing issues have been searched.
+        - label: The issue can be reproduced.
+        - label: Logs or screenshots have been attached where applicable.
+        - label: Business impact has been assessed.

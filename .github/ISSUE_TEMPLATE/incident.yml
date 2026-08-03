@@ -14,13 +14,9 @@ body:
 
         Complete all mandatory fields before submitting.
 
-        ---
         ## Enterprise Header
-        The first five fields are mandatory for every engineering work item.
 
-  ######################################################################
-  # Enterprise Header (Common to ALL Issue Types)
-  ######################################################################
+        The first five fields are mandatory for every engineering work item.
 
   - type: input
     id: requestor_id
@@ -53,7 +49,7 @@ body:
     id: priority
     attributes:
       label: Priority
-      description: Business priority of the incident.
+      description: Business priority.
       options:
         - priority:p0
         - priority:p1
@@ -66,7 +62,7 @@ body:
     id: component
     attributes:
       label: Affected Component
-      description: Select the primary affected component.
+      description: Select the affected component.
       options:
         - component:api
         - component:backend
@@ -83,9 +79,10 @@ body:
     validations:
       required: true
 
-  ######################################################################
-  # Incident Details
-  ######################################################################
+  - type: markdown
+    attributes:
+      value: |
+        ## Incident Details
 
   - type: dropdown
     id: severity
@@ -122,7 +119,7 @@ body:
       required: true
 
   - type: textarea
-    id:_business_impact
+    id: business_impact
     attributes:
       label: Business Impact
       description: Describe the impact on customers or business operations.
@@ -160,7 +157,7 @@ body:
         09:42 - Service restored.
 
   - type: textarea
-    id: root_cause
+    id: suspected_root_cause
     attributes:
       label: Suspected Root Cause
       description: Initial root cause analysis.
@@ -168,7 +165,7 @@ body:
         Database connection pool exhausted.
 
   - type: textarea
-    id: mitigation
+    id: recovery_actions
     attributes:
       label: Mitigation / Recovery Actions
       description: Describe actions taken to restore service.
@@ -178,28 +175,29 @@ body:
         Redeployed API service.
 
   - type: textarea
-    id: follow_up
+    id: follow_up_actions
     attributes:
       label: Follow-up Actions
       description: Actions required to prevent recurrence.
       placeholder: |
-        Create bug.
-        Improve monitoring.
-        Capacity review.
+        Create Bug
+        Create Change Request
+        Improve monitoring
 
   - type: textarea
-    id: related_items
+    id: related_issues
     attributes:
       label: Related Issues
-      description: Link Bugs, Tasks or Problems.
+      description: Link Bugs, Tasks, Change Requests or Problems.
       placeholder: |
         Bug #123
         Task #456
         Problem #789
 
-  ######################################################################
-  # Incident Closure
-  ######################################################################
+  - type: markdown
+    attributes:
+      value: |
+        ## Closure
 
   - type: checkboxes
     id: closure

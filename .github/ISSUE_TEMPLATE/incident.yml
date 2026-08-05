@@ -3,7 +3,7 @@ description: "Report a production or operational incident"
 title: "[Incident]: "
 
 labels:
-  - "type:incident"
+  - "incident"
 
 body:
 
@@ -51,10 +51,10 @@ body:
       label: Priority
       description: Business priority.
       options:
-        - priority:p0
-        - priority:p1
-        - priority:p2
-        - priority:p3
+        - p0-priority
+        - p1-priority
+        - p2-priority
+        - p3-priority
     validations:
       required: true
 
@@ -64,18 +64,19 @@ body:
       label: Affected Component
       description: Select the affected component.
       options:
-        - component:api
-        - component:backend
-        - component:frontend
-        - component:database
-        - component:infrastructure
-        - component:ci-cd
-        - component:security
-        - component:testing
-        - component:ai
-        - component:ai-agent
-        - component:documentation
-        - component:other
+        - api
+        - backend
+        - ui-component
+        - database
+        - data-component
+        - infrastructure
+        - ci-cd
+        - security
+        - testing-component
+        - ai-component
+        - ai-agent
+        - documentation
+        - other-component
     validations:
       required: true
 
@@ -90,10 +91,10 @@ body:
       label: Severity
       description: Business impact of the incident.
       options:
-        - severity:critical
-        - severity:high
-        - severity:medium
-        - severity:low
+        - critical
+        - high
+        - medium
+        - low
     validations:
       required: true
 

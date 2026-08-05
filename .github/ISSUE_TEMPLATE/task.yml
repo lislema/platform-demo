@@ -3,7 +3,7 @@ description: "Create a development task"
 title: "[Task]: "
 
 labels:
-  - "type:task"
+  - "task"
 
 body:
 
@@ -55,10 +55,10 @@ body:
       label: Priority
       description: Select the business priority.
       options:
-        - priority:p0
-        - priority:p1
-        - priority:p2
-        - priority:p3
+        - p0-priority
+        - p1-priority
+        - p2-priority
+        - p3-priority
     validations:
       required: true
 
@@ -68,18 +68,19 @@ body:
       label: Primary Component
       description: Select the primary component affected.
       options:
-        - component:api
-        - component:backend
-        - component:frontend
-        - component:database
-        - component:infrastructure
-        - component:ci-cd
-        - component:security
-        - component:testing
-        - component:ai
-        - component:ai-agent
-        - component:documentation
-        - component:other
+        - api
+        - backend
+        - ui-component
+        - database
+        - data-component
+        - infrastructure
+        - ci-cd
+        - security
+        - testing-component
+        - ai-component
+        - ai-agent
+        - documentation
+        - other-component
     validations:
       required: true
 

@@ -36,7 +36,7 @@ body:
     attributes:
       label: Application Name
       description: Name of the application or service.
-      placeholder: AI Gateway
+      placeholder: CNW
     validations:
       required: true
 
@@ -45,7 +45,7 @@ body:
     attributes:
       label: Application ID (AIR ID)
       description: Enterprise AIR Application Identifier.
-      placeholder: AIR-123456
+      placeholder: "316433"
     validations:
       required: true
 
